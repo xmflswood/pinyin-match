@@ -1,6 +1,7 @@
 const dict = require('./pinyin_dict_notone').pinyin_dict_notone
 const allPinyin = require('./pinyin_dict_notone').allPinyin
 const notone = parseDict()
+let storage = {}
 function parseDict() {
   let parseDict = {}
   for (let i in dict) {
@@ -93,6 +94,7 @@ function getFullKey(key) {
   if (result.length === 0 || (result[0].length !== key.length)) {
     result.push(key.split(''))
   }
+  storage = {[key]: result}
   return result
 }
 
@@ -112,7 +114,7 @@ function point2point(test, key, last) {
 function match(cn, keys) {
   let py = getPinyin(cn)
   let pyLength = py.length
-  let fullString = getFullKey(keys)
+  let fullString = storage[keys] || getFullKey(keys)
   for (let k = 0; k < fullString.length; k++) {
     let key = fullString[k]
     let keyLength = key.length
@@ -139,6 +141,4 @@ function match(cn, keys) {
   }
   return false
 }
-
-console.log(match('我是你爹点', 'nidiedi'))
-
+module.exports = match
