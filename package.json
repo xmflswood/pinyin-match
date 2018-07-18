@@ -1,7 +1,7 @@
 {
   "name": "pinyin-match",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "支持多音字，首字母缩写的拼音搜索引擎",
   "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

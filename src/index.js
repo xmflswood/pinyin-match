@@ -98,10 +98,10 @@ function getFullKey(key) {
   return result
 }
 
-function point2point(test, key, last) {
+function point2point(test, key, last, extend) {
   let a = test.split(' ')
   a.forEach(i => {
-    if (i.length > 0) {
+    if (i.length > 0 && extend) {
       a.push(i.charAt(0))
     }
   })
@@ -111,20 +111,27 @@ function point2point(test, key, last) {
   return a.some((i) => i.indexOf(key) !== -1)
 }
 
-function match(cn, keys) {
-  let py = getPinyin(cn)
+function match(input, keys) {
+  input = input.toLowerCase()
+  keys = keys.toLowerCase()
+  let indexOf = input.indexOf(keys)
+  if (indexOf !== -1) {
+    return [indexOf, indexOf + keys.length - 1]
+  }
+  let py = getPinyin(input)
   let pyLength = py.length
   let fullString = storage[keys] || getFullKey(keys)
   for (let k = 0; k < fullString.length; k++) {
     let key = fullString[k]
     let keyLength = key.length
+    let extend = keyLength === keys.length
     if (keyLength <= pyLength) {
       for (let temp = 0; ;) {
         if (pyLength - temp >= keyLength) {
           let isMatch = true
           let i = 0
           for (; i < key.length; i += 1) {
-            if (!point2point(py[temp + i], key[i], py[temp + i + 1] ? false : true)) {
+            if (!point2point(py[temp + i], key[i], py[temp + i + 1] ? false : true, extend)) {
               temp = temp + 1
               isMatch = false
               break
@@ -141,4 +148,7 @@ function match(cn, keys) {
   }
   return false
 }
-module.exports = match
+const pinyin = {
+  match
+}
+module.exports = pinyin
