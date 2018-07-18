@@ -108,7 +108,7 @@ function point2point(test, key, last, extend) {
   if (!last) {
     return a.indexOf(key) !== -1
   }
-  return a.some((i) => i.indexOf(key) !== -1)
+  return a.some((i) => i.indexOf(key) === 0)
 }
 
 function match(input, keys) {
@@ -131,7 +131,7 @@ function match(input, keys) {
           let isMatch = true
           let i = 0
           for (; i < key.length; i += 1) {
-            if (!point2point(py[temp + i], key[i], py[temp + i + 1] ? false : true, extend)) {
+            if (!point2point(py[temp + i], key[i], (py[temp + i + 1] && key[i + 1]) ? false : true, extend)) {
               temp = temp + 1
               isMatch = false
               break
