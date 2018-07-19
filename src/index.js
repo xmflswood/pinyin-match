@@ -25,7 +25,7 @@ function getPinyin(cn) {
   }
   return result
 }
-
+// 对输入拼音进行切分
 function wordBreak(s) {
   let result = []
   let solutions = []
@@ -46,6 +46,7 @@ function getAllSolutions(start, s, result, solutions, possible) {
   for (let i = start; i < s.length; i++) {
     let piece = s.substring(start, i + 1)
     let match = false
+    // 最后一个音特殊处理，不需要全部打完整
     if (allPinyin.some(i => i.indexOf(piece) === 0) && !s[i + 1] && possible[i + 1]) {
       if (piece.length === 1) {
         result.push(piece)
@@ -75,7 +76,7 @@ function getAllSolutions(start, s, result, solutions, possible) {
     }
   }
 }
-
+// 获取输入拼音的所有组合（切分 + 首字母）
 function getFullKey(key) {
   let result = []
   wordBreak(key).forEach(i => {
@@ -94,6 +95,7 @@ function getFullKey(key) {
   if (result.length === 0 || (result[0].length !== key.length)) {
     result.push(key.split(''))
   }
+  // 缓存当前结果 避免重复计算
   storage = {[key]: result}
   return result
 }
