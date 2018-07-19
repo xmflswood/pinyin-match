@@ -4,7 +4,7 @@
   "description": "支持多音字，首字母缩写的拼音搜索引擎",
   "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "774898896@qq.com",
@@ -13,6 +13,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "mocha": "^5.2.0",
     "webpack": "^4.16.1"
   }
 }

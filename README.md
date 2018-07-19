@@ -44,16 +44,20 @@ npm install pinyin-match --save
 ```js
 
 const PinyinMatch = require('pinyin-match');
-PinyinMatch.match('我爱你中华人民共和国', 'nzh'); // [2, 4]
+let test = '123曾经沧海难为水除却巫山不是云'
 
-PinyinMatch.match('我爱你中华人民共和国', 'nizhonghu') // [2, 4]
+PinyinMatch.match(test, '23曾'); // [1, 3]
 
-PinyinMatch.match('我爱你中华人民共和国', 'nizhonghua') // [2, 4]
+PinyinMatch.match(test, 'cjc') // [3, 5]
 
-PinyinMatch.match('我爱你中华人民共和国', 'onghua') // false
+PinyinMatch.match(test, 'cengjingcanghai') // [3, 6]
 
-PinyinMatch.match('我爱你中华人民共和国', 'jsdklfa') // false
+PinyinMatch.match(test, 'cengjingcangha') // [3, 6]
 
-PinyinMatch.match('我爱你中华人民共和国', 'nzhua') // false
+PinyinMatch.match(test, 'engjingcanghai') // false
+
+PinyinMatch.match(test, 'zengjingcang') // [3, 5]
+
+PinyinMatch.match(test, 'sdjkelwqf') // false
 
 ```
