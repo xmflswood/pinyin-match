@@ -22,5 +22,8 @@ describe('PinyinMatch', () => {
     it('多音字', () => {
       assert.deepEqual([3, 5], PinyinMatch.match(text, 'zengjingcang'))
     })
+    it('忽略空格', () => {
+      assert.deepEqual([3, 5], PinyinMatch.match(text, 'zengji ng cang'))
+    })
   })
 })

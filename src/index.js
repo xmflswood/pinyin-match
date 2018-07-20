@@ -115,7 +115,7 @@ function point2point(test, key, last, extend) {
 
 function match(input, keys) {
   input = input.toLowerCase()
-  keys = keys.toLowerCase()
+  keys = keys.replace(/\s+/g, '').toLowerCase()
   let indexOf = input.indexOf(keys)
   if (indexOf !== -1) {
     return [indexOf, indexOf + keys.length - 1]
