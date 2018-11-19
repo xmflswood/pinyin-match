@@ -1,10 +1,11 @@
 {
   "name": "pinyin-match",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "支持多音字，首字母缩写的拼音搜索引擎",
   "main": "dist/main.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "774898896@qq.com",
@@ -14,6 +15,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "mocha": "^5.2.0",
-    "webpack": "^4.16.1"
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.2"
   }
 }

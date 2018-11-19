@@ -131,16 +131,28 @@ function match(input, keys) {
       for (let temp = 0; ;) {
         if (pyLength - temp >= keyLength) {
           let isMatch = true
+          let preSpaceNum = 0
+          let spaceNum = 0
           let i = 0
           for (; i < key.length; i += 1) {
-            if (!point2point(py[temp + i], key[i], (py[temp + i + 1] && key[i + 1]) ? false : true, extend)) {
-              temp = temp + 1
-              isMatch = false
-              break
+            if (i === 0 && py[temp + i + preSpaceNum] === ' ') {
+              preSpaceNum += 1
+              i -= 1
+            } else {
+              if (py[temp + i + spaceNum] === ' ') {
+                spaceNum += 1
+                i -= 1
+              } else {
+                if (!point2point(py[temp + i + spaceNum], key[i], (py[temp + i + 1] && key[i + 1]) ? false : true, extend)) {
+                  temp = temp + 1
+                  isMatch = false
+                  break
+                }
+              }
             }
           }
           if (isMatch) {
-            return [temp, temp + i - 1]
+            return [temp + preSpaceNum, temp + spaceNum + i - 1]
           }
         } else {
           break

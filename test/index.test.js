@@ -25,5 +25,8 @@ describe('PinyinMatch', () => {
     it('忽略空格', () => {
       assert.deepEqual([3, 5], PinyinMatch.match(text, 'zengji ng cang'))
     })
+    it('忽略空格', () => {
+      assert.deepEqual([6, 12], PinyinMatch.match('   我 爱你 中   国   ', 'nzg'))
+    })
   })
 })
