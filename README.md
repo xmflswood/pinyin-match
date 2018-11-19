@@ -62,4 +62,6 @@ PinyinMatch.match(test, 'sdjkelwqf') // false
 
 PinyinMatch.match(text, 'zengji ng cang') // [3, 5]
 
+PinyinMatch.match('   我 爱你 中   国   ', 'nzg') // [6, 12]
+
 ```
