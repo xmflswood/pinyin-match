@@ -25,8 +25,20 @@ describe('PinyinMatch', () => {
     it('忽略空格', () => {
       assert.deepEqual([3, 5], PinyinMatch.match(text, 'zengji ng cang'))
     })
+    it('超出', () => {
+      assert.deepEqual(false, PinyinMatch.match(text, 'zengji ng cangsdjfkl'))
+    })
     it('忽略空格', () => {
       assert.deepEqual([6, 12], PinyinMatch.match('   我 爱你 中   国   ', 'nzg'))
+    })
+    it('忽略空格原文', () => {
+      assert.deepEqual([5, 8], PinyinMatch.match('   我 爱你 中   国s   ', '爱你中'))
+    })
+    it('忽略空格原文', () => {
+      assert.deepEqual([5, 13], PinyinMatch.match('   我 爱你 中   国s   ', '爱你中国s'))
+    })
+    it('超出原文', () => {
+      assert.deepEqual(false, PinyinMatch.match('   我 爱你 中   国s   ', '爱你中国sj'))
     })
   })
 })

@@ -99,8 +99,8 @@ function getFullKey(key) {
   storage = {[key]: result}
   return result
 }
-
 function point2point(test, key, last, extend) {
+  if (!test) return false
   let a = test.split(' ')
   a.forEach(i => {
     if (i.length > 0 && extend) {
@@ -120,9 +120,16 @@ function match(input, keys) {
   if (indexOf !== -1) {
     return [indexOf, indexOf + keys.length - 1]
   }
+  // 原文匹配(带空格)
+  let noPyIndex = getIndex(input.split(''), [keys.split('')], keys)
+  if (noPyIndex) return noPyIndex
+  // pinyin匹配
   let py = getPinyin(input)
-  let pyLength = py.length
   let fullString = storage[keys] || getFullKey(keys)
+  return getIndex(py, fullString, keys)
+}
+function getIndex(py, fullString, keys) {
+  let pyLength = py.length
   for (let k = 0; k < fullString.length; k++) {
     let key = fullString[k]
     let keyLength = key.length
