@@ -40,5 +40,8 @@ describe('PinyinMatch', () => {
     it('超出原文', () => {
       assert.deepEqual(false, PinyinMatch.match('   我 爱你 中   国s   ', '爱你中国sj'))
     })
+    it('bao', () => {
+      assert.deepEqual([1, 1], PinyinMatch.match('淘宝', 'bao'))
+    })
   })
 })
