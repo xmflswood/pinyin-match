@@ -69,3 +69,4 @@ PinyinMatch.match('   我 爱你 中   国   ', 'nzg') // [6, 12]
 PinyinMatch.match('   我 爱你 中   国   ', '爱你中') // [5, 8]
 
 ```
+**如果对你项目有帮助请给个Star**
