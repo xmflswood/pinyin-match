@@ -129,40 +129,34 @@ function match(input, keys) {
   return getIndex(py, fullString, keys)
 }
 function getIndex(py, fullString, keys) {
-  let pyLength = py.length
-  for (let k = 0; k < fullString.length; k++) {
-    let key = fullString[k]
-    let keyLength = key.length
-    let extend = keyLength === keys.length
-    if (keyLength <= pyLength) {
-      for (let temp = 0; ;) {
-        if (pyLength - temp >= keyLength) {
-          let isMatch = true
-          let preSpaceNum = 0
-          let spaceNum = 0
-          let i = 0
-          for (; i < key.length; i += 1) {
-            if (i === 0 && py[temp + i + preSpaceNum] === ' ') {
-              preSpaceNum += 1
+  for (let p = 0; p < py.length; p++) {
+    for (let k = 0; k < fullString.length; k++) {
+      let key = fullString[k]
+      let keyLength = key.length
+      let extend = (keyLength === keys.length)
+      let isMatch = true
+      let i = 0
+      let preSpaceNum = 0
+      let spaceNum = 0
+      if (keyLength <= py.length) {
+        for (; i < key.length; i++) {
+          if (i === 0 && py[p + i + preSpaceNum] === ' ') {
+            preSpaceNum += 1
+            i -= 1
+          } else {
+            if (py[p + i + spaceNum] === ' ') {
+              spaceNum += 1
               i -= 1
             } else {
-              if (py[temp + i + spaceNum] === ' ') {
-                spaceNum += 1
-                i -= 1
-              } else {
-                if (!point2point(py[temp + i + spaceNum], key[i], (py[temp + i + 1] && key[i + 1]) ? false : true, extend)) {
-                  temp = temp + 1
-                  isMatch = false
-                  break
-                }
+              if (!point2point(py[p + i + spaceNum], key[i], (py[p + i + 1] && key[i + 1]) ? false : true, extend)) {
+                isMatch = false
+                break
               }
             }
           }
-          if (isMatch) {
-            return [temp + preSpaceNum, temp + spaceNum + i - 1]
-          }
-        } else {
-          break
+        }
+        if (isMatch) {
+          return [p + preSpaceNum, spaceNum + p + i - 1]
         }
       }
     }
