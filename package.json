@@ -3,6 +3,7 @@
   "version": "1.0.9",
   "description": "支持多音字，首字母缩写的拼音搜索引擎",
   "main": "dist/main.js",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "mocha",
     "build": "webpack"
