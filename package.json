@@ -1,6 +1,6 @@
 {
   "name": "pinyin-match",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "支持多音字，首字母缩写的拼音搜索引擎",
   "typings": "index.d.ts",
   "main": "lib/main.js",
@@ -21,7 +21,7 @@
     "url": "https://github.com/xmflswood/pinyin-match.git"
   },
   "author": "774898896@qq.com",
-  "license": "ISC",
+  "license": "SATA",
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",

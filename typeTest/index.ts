@@ -1,3 +1,3 @@
-import * as Pinyin from 'pinyin-match';
+import pinyinMatch from 'pinyin-match';
 
-console.log(Pinyin.match('你好', 'nh'));
+console.log(pinyinMatch.match('你好', 'nh'));
