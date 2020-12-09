@@ -69,4 +69,9 @@ PinyinMatch.match('   我 爱你 中   国   ', 'nzg') // [6, 12]
 PinyinMatch.match('   我 爱你 中   国   ', '爱你中') // [5, 8]
 
 ```
-**如果对你项目有帮助请给个Star**
+
+## 许可证
+
+pinyin-match is under The Star And Thank Author License (SATA)
+
+本项目基于MIT协议发布，并增加了SATA协议
