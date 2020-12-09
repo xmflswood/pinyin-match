@@ -23,7 +23,7 @@ export default {
   }, {
     file: 'dist/main.js',
     format: 'umd',
-    name: 'pinyinMatch'
+    name: 'PinyinMatch'
   }],
   plugins: [
     babel(),
