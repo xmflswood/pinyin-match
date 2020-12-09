@@ -1,5 +1,4 @@
-const dict = require('./pinyin_dict_notone').pinyin_dict_notone
-const allPinyin = require('./pinyin_dict_notone').allPinyin
+import { dict, allPinyin } from './pinyin_dict_notone'
 const notone = parseDict()
 let storage = {}
 function parseDict() {
@@ -166,4 +165,4 @@ function getIndex(py, fullString, keys) {
 const pinyin = {
   match
 }
-module.exports = pinyin
+export default pinyin

@@ -8,3 +8,11 @@
 
 - 重写内部 getIndex 方法
   - 修复某些情况下，匹配字符没有按顺序的问题[#7](https://github.com/xmflswood/pinyin-match/issues/7)
+
+### 1.1.4
+
+*2020-12-09*
+
+### 优化
+- 移除多音字 大(tai)的读音
+- 调整打包为rollup 支持es

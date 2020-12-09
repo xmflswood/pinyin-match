@@ -1,5 +1,5 @@
 const assert = require('assert')
-const PinyinMatch = require('../src/index')
+const PinyinMatch = require('../dist/main.js')
 let text = '123曾经沧海难为水除却巫山不是云'
 
 describe('PinyinMatch', () => {
