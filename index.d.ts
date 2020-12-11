@@ -4,3 +4,4 @@ declare namespace Pinyin {
 
 export as namespace Pinyin;
 export = Pinyin;
+export default Pinyin;
