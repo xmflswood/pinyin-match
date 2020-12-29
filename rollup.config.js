@@ -19,7 +19,8 @@ export default {
   }, {
     file: 'es/main.js',
     format: 'es',
-    indent: false
+    indent: false,
+    exports: 'default'
   }, {
     file: 'dist/main.js',
     format: 'umd',
