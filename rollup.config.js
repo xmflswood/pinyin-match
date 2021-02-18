@@ -5,13 +5,12 @@ const mTerser = () => terser({
     compress: {
         pure_getters: true,
         unsafe: true,
-        unsafe_comps: true,
-        warnings: false,
+        unsafe_comps: true
     }
 })
 
-export default {
-  input: 'src/index.js',
+export default [{
+  input: 'src/simplified.js',
   output: [{
     file: 'lib/main.js',
     format: 'cjs',
@@ -30,4 +29,24 @@ export default {
     babel(),
     mTerser()
   ]
-}
+}, {
+  input: 'src/traditional.js',
+  output: [{
+    file: 'lib/traditional.js',
+    format: 'cjs',
+    indent: false
+  }, {
+    file: 'es/traditional.js',
+    format: 'es',
+    indent: false,
+    exports: 'default'
+  }, {
+    file: 'dist/traditional.js',
+    format: 'umd',
+    name: 'PinyinMatch'
+  }],
+  plugins: [
+    babel(),
+    mTerser()
+  ]
+}]

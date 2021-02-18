@@ -1,7 +1,14 @@
-import { dict, allPinyin } from './pinyin_dict_notone'
-const notone = parseDict()
+let allPinyin = []
+let notone = {};
 let storage = {}
-function parseDict() {
+
+function init(dict) {
+  allPinyin = Object.keys(dict)
+  notone = parseDict(dict)
+  return match
+}
+
+function parseDict(dict) {
   let parseDict = {}
   for (let i in dict) {
     let temp = dict[i]
@@ -163,7 +170,4 @@ function getIndex(py, fullString, keys) {
   }
   return false
 }
-const pinyin = {
-  match
-}
-export default pinyin
+export default init

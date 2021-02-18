@@ -2,11 +2,10 @@
 
 能够使用拼音快速检索目标。
 
-1. 26.5KB (gzip => 19KB)
-2. 支持多音字、拼音首字母匹配,具备分词功能
-3. 覆盖 6763 个汉字
-4. 返回位置信息，可用于高亮匹配字符
-5. 在长多音字串下依然有高性能
+1. 简体版27KB (gzip ≈ 19KB)，繁体版86KB (gzip ≈ 60KB)
+2. 支持多音字、繁体字、拼音首字母匹配,具备分词功能
+3. 返回位置信息，可用于高亮匹配字符
+4. 在长多音字串下依然有高性能
 
 在线演示：<http://119.29.39.55:8686>;
 
@@ -16,10 +15,13 @@
 npm install pinyin-match --save
 ```
 
-也支持`<script>`引入
+支持`<script>`引入
 
-`<script src="pinyin-match/dist/main.js"></script>`
+简体：`<script src="pinyin-match/dist/main.js"></script>`  
 
+繁体：`<script src="pinyin-match/dist/traditional.js"></script>`  
+
+使用方式：  
 `PinyinMatch.match('xxx', 'x')`
 
 ## API
@@ -39,11 +41,23 @@ npm install pinyin-match --save
 
 ## 使用范例
 
+引入简体版：  
+```
+import PinyinMatch from 'pinyin-match';  // es  
+
+const PinyinMatch = require('pinyin-match'); // commonjs
+```  
+
+引入繁体版(es)：  
+```
+import PinyinMatch from 'pinyin-match/es/traditional.js'; // es  
+
+const PinyinMatch = require('pinyin-match/lib/traditional.js'); // commonjs
+```
+
 列表项为字符串：
 
 ```js
-
-const PinyinMatch = require('pinyin-match');
 let test = '123曾经沧海难为水除却巫山不是云'
 
 PinyinMatch.match(test, '23曾'); // [1, 3]
@@ -67,6 +81,8 @@ PinyinMatch.match(text, 'zengji ng cangsdjfkl') // false
 PinyinMatch.match('   我 爱你 中   国   ', 'nzg') // [6, 12]
 
 PinyinMatch.match('   我 爱你 中   国   ', '爱你中') // [5, 8]
+
+PinyinMatch.match('發', 'fa') // [0, 0]
 
 ```
 

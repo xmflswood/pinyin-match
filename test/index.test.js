@@ -1,5 +1,6 @@
 const assert = require('assert')
 const PinyinMatch = require('../dist/main.js')
+const PinyinMatch2 = require('../dist/traditional.js') // 繁体字
 let text = '123曾经沧海难为水除却巫山不是云'
 
 describe('PinyinMatch', () => {
@@ -45,6 +46,14 @@ describe('PinyinMatch', () => {
     })
     it('issues 7', () => {
       assert.deepEqual([0, 0], PinyinMatch.match('卡号打开', 'ka'))
+    })
+  })
+})
+
+describe('PinyinMatch2', () => {
+  describe('#match 繁体', () => {
+    it('繁体字匹配', () => {
+      assert.deepEqual([0, 0], PinyinMatch2.match('發', 'fa'))
     })
   })
 })

@@ -1,7 +1,7 @@
 {
   "name": "pinyin-match",
-  "version": "1.1.9",
-  "description": "支持多音字，首字母缩写的拼音搜索引擎",
+  "version": "1.2.0",
+  "description": "支持多音字, 繁体字，首字母缩写的拼音搜索引擎",
   "typings": "index.d.ts",
   "main": "lib/main.js",
   "unpkg": "dist/main.js",
