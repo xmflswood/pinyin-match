@@ -47,6 +47,9 @@ describe('PinyinMatch', () => {
     it('issues 7', () => {
       assert.deepEqual([0, 0], PinyinMatch.match('卡号打开', 'ka'))
     })
+    it('嫚', () => {
+      assert.deepEqual([0, 0], PinyinMatch.match('嫚', 'man'))
+    })
   })
 })
 
