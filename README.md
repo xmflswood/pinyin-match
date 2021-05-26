@@ -1,4 +1,6 @@
 # 如果有帮助，麻烦点个Star
+# 具体实现文档
+https://juejin.cn/post/6844904161461403661
 
 # pinyin-match
 
