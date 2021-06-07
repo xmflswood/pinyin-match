@@ -95,3 +95,6 @@ PinyinMatch.match('發', 'fa') // [0, 0]
 pinyin-match is under The Star And Thank Author License (SATA)
 
 本项目基于MIT协议发布，并增加了SATA协议
+
+## 仓库
+https://github.com/xmflswood/pinyin-match
