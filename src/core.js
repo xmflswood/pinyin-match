@@ -45,6 +45,7 @@ function wordBreak(s) {
 }
 
 function getAllSolutions(start, s, result, solutions, possible) {
+  let len = s.length
   if (start === len) {
     solutions.push(result.join(' '))
     return
