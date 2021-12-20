@@ -25,7 +25,7 @@ function parseDict(dict) {
 
 function getPinyin(cn) {
   let result = []
-  for (let i = 0, len = cn.length; i < len; i ++) {
+  for (let i = 0, len = cn.length; i < len; i++) {
     let temp = cn.charAt(i)
     result.push(notone[temp] || temp)
   }
@@ -37,7 +37,7 @@ function wordBreak(s) {
   let solutions = []
   let len = s.length
   let possible = []
-  for (let i = 0; i <= s.length; i++) {
+  for (let i = 0; i <= len; i++) {
     possible.push(true)
   }
   getAllSolutions(0, s, result, solutions, possible)
@@ -45,11 +45,11 @@ function wordBreak(s) {
 }
 
 function getAllSolutions(start, s, result, solutions, possible) {
-  if (start === s.length) {
+  if (start === len) {
     solutions.push(result.join(' '))
     return
   }
-  for (let i = start; i < s.length; i++) {
+  for (let i = start; i < len; i++) {
     let piece = s.substring(start, i + 1)
     let match = false
     // 最后一个音特殊处理，不需要全部打完整
