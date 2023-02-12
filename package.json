@@ -1,6 +1,6 @@
 {
   "name": "pinyin-match",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "支持多音字, 繁体字，首字母缩写的拼音搜索引擎",
   "typings": "index.d.ts",
   "main": "lib/main.js",
