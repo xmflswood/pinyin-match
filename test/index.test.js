@@ -56,6 +56,18 @@ describe('PinyinMatch', () => {
     it('钭', () => {
       assert.deepEqual([0, 0], PinyinMatch.match('钭', 'tou'))
     })
+    it('lue', () => {
+      assert.deepEqual([0, 0], PinyinMatch.match('略', 'lue'))
+    })
+    it('lve', () => {
+      assert.deepEqual([0, 0], PinyinMatch.match('略', 'lve'))
+    })
+    it('que', () => {
+      assert.deepEqual([0, 0], PinyinMatch.match('缺', 'que'))
+    })
+    it('qve', () => {
+      assert.deepEqual([0, 0], PinyinMatch.match('缺', 'qve'))
+    })
   })
 })
 

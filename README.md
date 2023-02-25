@@ -96,5 +96,11 @@ pinyin-match is under The Star And Thank Author License (SATA)
 
 本项目基于MIT协议发布，并增加了SATA协议
 
+## 其他语言版本  
+欢迎其他语言开发者增加对应版本（标明来自本项目即可）  
+
+### GO
+https://github.com/limawanyan/go-pinyin-match
+
 ## 仓库
 https://github.com/xmflswood/pinyin-match

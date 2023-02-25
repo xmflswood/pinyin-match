@@ -3,9 +3,24 @@ let notone = {};
 let storage = {}
 
 function init(dict) {
-  allPinyin = Object.keys(dict)
-  notone = parseDict(dict)
+  // https://github.com/xmflswood/pinyin-match/issues/37
+  const handledDict = {}
+  const uv = ['ju','jun','jue','juan','qu','qun','que','xuan','xu','xue','yu','yuan','yue','yun','nve','lve']
+  Object.keys(dict).forEach(key => {
+    handledDict[key] = dict[key]
+    allPinyin.push(key)
+    if (uv.includes(key)) {
+      const replacedKey = replaceUv(key)
+      handledDict[replacedKey] = dict[key]
+      allPinyin.push(replacedKey)
+    }
+  })
+  notone = parseDict(handledDict)
   return match
+}
+function replaceUv(str) {
+  if (str.indexOf('u') !== -1) return str.replace('u', 'v')
+  return str.replace('v', 'u') 
 }
 
 function parseDict(dict) {

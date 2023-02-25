@@ -29,3 +29,9 @@
 #### 优化
 - 增加喆、钭
 - 移除多音字 体(ben)的读音
+
+### 1.2.4
+*2023-02-25*
+
+#### 优化
+- 优化拼音中 ü 的 u v打法，详见 [issues/37](https://github.com/xmflswood/pinyin-match/issues/37)
