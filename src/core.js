@@ -3,25 +3,50 @@ let notone = {};
 let storage = {}
 
 function init(dict) {
-  // https://github.com/xmflswood/pinyin-match/issues/37
-  const handledDict = {}
-  const uv = ['ju','jun','jue','juan','qu','qun','que','xuan','xu','xue','yu','yuan','yue','yun','nve','lve']
-  Object.keys(dict).forEach(key => {
-    handledDict[key] = dict[key]
-    allPinyin.push(key)
+  const handledDict = {};
+  const allPinyin = [];
+  const uv = ['ju', 'jun', 'jue', 'juan', 'qu', 'qun', 'que', 'xuan', 'xu', 'xue', 'yu', 'yuan', 'yue', 'yun', 'nve', 'lve'];
+  const nvlv = ['nv', 'lv'];
+
+  const replacers = {
+    uv: replaceUv,
+    nvlv: replaceNvlv
+  };
+
+  const getKeyReplacer = key => {
     if (uv.includes(key)) {
-      const replacedKey = replaceUv(key)
-      handledDict[replacedKey] = dict[key]
-      allPinyin.push(replacedKey)
+      return 'uv';
+    } else if (nvlv.includes(key)) {
+      return 'nvlv';
     }
-  })
-  notone = parseDict(handledDict)
-  return match
+    return null;
+  };
+
+  Object.keys(dict).forEach(key => {
+    handledDict[key] = dict[key];
+    allPinyin.push(key);
+
+    const reKey = getKeyReplacer(key);
+    if (reKey !== null) {
+      const replacedKey = replacers[reKey](key);
+      handledDict[replacedKey] = dict[key];
+      allPinyin.push(replacedKey);
+    }
+  });
+
+  notone = parseDict(handledDict);
+  return match;
 }
+
+function replaceNvlv(str) {
+  if (str.indexOf('v') !== -1) return str.replace('v', 'ü');
+}
+
 function replaceUv(str) {
-  if (str.indexOf('u') !== -1) return str.replace('u', 'v')
-  return str.replace('v', 'u') 
+  if (str.indexOf('u') !== -1) return str.replace('u', 'v');
+  return str.replace('v', 'u');
 }
+
 
 function parseDict(dict) {
   let parseDict = {}
