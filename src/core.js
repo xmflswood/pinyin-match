@@ -6,11 +6,18 @@ function init(dict) {
   // https://github.com/xmflswood/pinyin-match/issues/37
   const handledDict = {}
   const uv = ['ju','jun','jue','juan','qu','qun','que','xuan','xu','xue','yu','yuan','yue','yun','nve','lve']
+  // https://github.com/xmflswood/pinyin-match/pull/43
+  const vList = ['lv', 'lve', 'nv', 'nve']
   Object.keys(dict).forEach(key => {
     handledDict[key] = dict[key]
     allPinyin.push(key)
     if (uv.includes(key)) {
       const replacedKey = replaceUv(key)
+      handledDict[replacedKey] = dict[key]
+      allPinyin.push(replacedKey)
+    }
+    if (vList.includes(key)) {
+      const replacedKey = key.replace('v', 'ü')
       handledDict[replacedKey] = dict[key]
       allPinyin.push(replacedKey)
     }

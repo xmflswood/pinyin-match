@@ -35,3 +35,9 @@
 
 #### 优化
 - 优化拼音中 ü 的 u v打法，详见 [issues/37](https://github.com/xmflswood/pinyin-match/issues/37)
+
+### 1.2.5
+*2023-11-25*
+
+#### 优化
+- 优化拼音中 ü 的 u v打法，详见 [输入时的 nv和lv识别失败问题](https://github.com/xmflswood/pinyin-match/pull/43)
