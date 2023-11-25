@@ -11,7 +11,7 @@ https://juejin.cn/post/6844904161461403661
 3. 返回位置信息，可用于高亮匹配字符
 4. 在长多音字串下依然有高性能
 
-在线演示：<http://laosep.top/pinyin-match>;
+在线演示：<https://xmflswood.github.io/pinyin-match/>;
 
 ## 安装
 
