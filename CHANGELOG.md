@@ -41,3 +41,9 @@
 
 #### 优化
 - 优化拼音中 ü 的 u v打法，详见 [输入时的 nv和lv识别失败问题](https://github.com/xmflswood/pinyin-match/pull/43)
+
+### 1.2.6
+*2024-08-29*
+
+#### 优化
+- 简体字典增加 “啰”
