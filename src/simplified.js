@@ -1,7 +1,9 @@
 import { dict } from './simplified_dict.js'
-import init from './core.js'
-var pinyin = {
-    match: init(dict)
+import { init, getPinyin } from './core.js'
+
+const pinyin = {
+	match: init(dict),
+	getPin: getPinyin
 }
 
 export default pinyin

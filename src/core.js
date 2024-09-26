@@ -193,4 +193,4 @@ function getIndex(py, fullString, keys) {
   }
   return false
 }
-export default init
+export default { init, getPinyin }
