@@ -74,11 +74,47 @@ describe('PinyinMatch', () => {
     it('nü', () => {
       assert.deepEqual([0, 0], PinyinMatch.match('女', 'nü'))
     })
+    it('nü nu', () => {
+      assert.deepEqual([0, 3], PinyinMatch.match('女生努力', 'nüshengnuli'))
+    })
     it('lüe', () => {
       assert.deepEqual([0, 0], PinyinMatch.match('略', 'lüe'))
     })
     it('ü !== v', () => {
       assert.equal(false, PinyinMatch.match('v', 'ü'))
+    })
+    it('español', ()=>{
+      assert.deepEqual([2,3], PinyinMatch.match('niño','no'))
+    })
+    it('áéí', ()=>{
+      assert.deepEqual([0,2], PinyinMatch.match('áéí','aei'))
+    })
+    it('éèêë', () => {
+      assert.deepEqual([0,3], PinyinMatch.match('éèêë', 'eeee'))
+    })
+    it('ãõç', () => {
+      assert.deepEqual([0,2], PinyinMatch.match('ãõç', 'aoc'))
+    })
+    it('àèìòù', () => {
+      assert.deepEqual([0,4], PinyinMatch.match('àèìòù','aeiou'))
+    })
+    it('éèíïóòúü', () => {
+      assert.deepEqual([0,7], PinyinMatch.match('éèíïóòúü','eeiioouu'))
+    })
+    it('äöü', () => {
+      assert.deepEqual([0,2], PinyinMatch.match('äöü','aou'))
+    })
+    it('čďěňřšťž', () => {
+      assert.deepEqual([0,7], PinyinMatch.match('čďěňřšťž','cdenrstz'))
+    })
+    it('ąćęńóśźż', () => {
+      assert.deepEqual([0,7], PinyinMatch.match('ąćęńóśźż','acenoszz'))
+    })
+    it('ğş', () => {
+      assert.deepEqual([0,1], PinyinMatch.match('ğş','gs'))
+    })
+    it('àảãáạ', () => {
+      assert.deepEqual([0,4], PinyinMatch.match('àảãáạ','aaaaa'))
     })
   })
 })
