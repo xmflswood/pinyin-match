@@ -27,7 +27,7 @@ function init(dict) {
 }
 function replaceUv(str) {
   if (str.indexOf('u') !== -1) return str.replace('u', 'v')
-  return str.replace('v', 'u') 
+  return str.replace('v', 'u')
 }
 
 function parseDict(dict) {
@@ -142,10 +142,19 @@ function point2point(test, key, last, extend) {
   return a.some((i) => i.indexOf(key) === 0)
 }
 
+const vList = ['lü', 'lüe', 'nü', 'nüe']
+function normalizeKey(keys) {
+  let normalizedSKey = keys.replace(/\s+/g, '').toLowerCase()
+  if(vList.some(v => normalizedSKey.includes(v))) {
+    normalizedSKey = normalizedSKey.replace('ü','v')
+  }
+  return normalizedSKey.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
 function match(input, keys) {
   if (!input || !keys) return false
-  input = input.toLowerCase()
-  keys = keys.replace(/\s+/g, '').toLowerCase()
+  input = input.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  keys = normalizeKey(keys)
   let indexOf = input.indexOf(keys)
   if (indexOf !== -1) {
     return [indexOf, indexOf + keys.length - 1]
