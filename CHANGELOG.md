@@ -47,3 +47,16 @@
 
 #### 优化
 - 简体字典增加 “啰”
+
+### 1.2.7
+*2025-04-29*
+
+#### 优化
+- Unicode 标准化匹配问题 https://github.com/xmflswood/pinyin-match/issues/51
+
+### 1.2.8
+*2025-05-11*
+
+#### 优化
+- 简体字典胖增加'pang'读音
+- 调整为MIT https://github.com/xmflswood/pinyin-match/issues/50

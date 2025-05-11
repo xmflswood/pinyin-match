@@ -59,6 +59,9 @@ describe('PinyinMatch', () => {
     it('啰', () => {
       assert.deepEqual([0, 0], PinyinMatch.match('啰', 'luo'))
     })
+    it('胖', () => {
+      assert.deepEqual([0, 0], PinyinMatch.match('胖', 'pang'))
+    })
     it('lue', () => {
       assert.deepEqual([0, 0], PinyinMatch.match('略', 'lue'))
     })
