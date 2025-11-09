@@ -60,3 +60,9 @@
 #### 优化
 - 简体字典胖增加'pang'读音
 - 调整为MIT https://github.com/xmflswood/pinyin-match/issues/50
+
+### 1.2.9
+*2025-11-09*
+
+#### 优化
+- 简体字典增加 “祎”
