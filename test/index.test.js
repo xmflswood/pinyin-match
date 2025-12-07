@@ -122,6 +122,9 @@ describe('PinyinMatch', () => {
     it('祎', () => {
       assert.deepEqual([0,0], PinyinMatch.match('祎','yi'))
     })
+    it('婳', () => {
+      assert.deepEqual([0,0], PinyinMatch.match('婳','hua'))
+    })
   })
 })
 
